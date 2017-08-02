@@ -1,0 +1,12 @@
+package: github.com/olebedev/go-gamp
+import:
+- package: github.com/go-openapi/errors
+- package: github.com/go-openapi/runtime
+  subpackages:
+  - client
+- package: github.com/go-openapi/strfmt
+- package: github.com/go-openapi/swag
+- package: github.com/pkg/errors
+- package: golang.org/x/net
+  subpackages:
+  - context
