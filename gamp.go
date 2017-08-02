@@ -3,6 +3,7 @@ package gamp
 import (
 	"context"
 	"io"
+	"io/ioutil"
 
 	"github.com/go-openapi/runtime"
 	httptransport "github.com/go-openapi/runtime/client"
@@ -27,7 +28,8 @@ func New(ctx context.Context, tid string) *gampops.Client {
 		return errors.Wrap(r.SetFormParam("v", "1"), "set form param 'v'")
 	})
 	transport.Consumers["image/gif"] = runtime.ConsumerFunc(func(reader io.Reader, data interface{}) error {
-		return nil
+		_, err := ioutil.ReadAll(reader)
+		return err
 	})
 
 	c := client.New(transport, nil)
