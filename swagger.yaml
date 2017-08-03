@@ -10,7 +10,6 @@ externalDocs:
 host: www.google-analytics.com
 schemes:
  - https
-
 basePath: /
 paths:
   /collect:
@@ -161,7 +160,10 @@ paths:
         in: formData
         name: je
         required: false
-        type: boolean
+        type: string
+        enum:
+        - '1'
+        - '0'
       - description: Flash Version
         in: formData
         name: fl
@@ -181,11 +183,14 @@ paths:
         - social
         - exception
         - timing
+        default: 'pageview'
       - description: Non-Interaction Hit
         in: formData
         name: ni
         required: false
-        type: boolean
+        type: string
+        enum:
+        - '1'
       - description: Document location URL
         in: formData
         name: dl
@@ -580,7 +585,10 @@ paths:
         in: formData
         name: exf
         required: false
-        type: boolean
+        type: string
+        enum:
+        - '0'
+        - '1'
       # - description: Custom Dimension
       #   in: formData
       #   name: cd<dimensionIndex>
@@ -601,4 +609,627 @@ paths:
         name: xvar
         required: false
         type: string
-      
+  /debug/collect:
+    post:
+      tags:
+      - gampops
+      description: Debug Measurements
+      operationId: DebugCollect
+      produces:
+      - image/gif
+      consumes:
+      - application/x-www-form-urlencoded
+      responses:
+        200:
+          description: Debug Report
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/HitParsingResult'
+      parameters:
+      - description: Protocol Version
+        in: formData
+        name: v
+        required: true
+        type: string
+        default: '1'
+      - description: Tracking ID / Web Property ID
+        in: formData
+        name: tid
+        required: true
+        type: string
+      - description: Anonymize IP
+        in: formData
+        name: aip
+        required: false
+        type: string
+        enum:
+        - '1'
+      - description: Data Source
+        in: formData
+        name: ds
+        required: false
+        type: string
+      - description: Queue Time
+        in: formData
+        name: qt
+        required: false
+        type: integer
+      - description: Cache Buster
+        in: formData
+        name: z
+        required: false
+        type: string
+      - description: Client ID
+        in: formData
+        name: cid
+        required: false
+        type: string
+      - description: User ID
+        in: formData
+        name: uid
+        required: false
+        type: string
+      - description: Session Control
+        in: formData
+        name: sc
+        required: false
+        type: string
+      - description: IP Override
+        in: formData
+        name: uip
+        required: false
+        type: string
+      - description: User Agent Override
+        in: formData
+        name: ua
+        required: false
+        type: string
+      - description: Geographical Override
+        in: formData
+        name: geoid
+        required: false
+        type: string
+      - description: Document Referrer
+        in: formData
+        name: dr
+        required: false
+        type: string
+      - description: Campaign Name
+        in: formData
+        name: cn
+        required: false
+        type: string
+      - description: Campaign Source
+        in: formData
+        name: cs
+        required: false
+        type: string
+      - description: Campaign Medium
+        in: formData
+        name: cm
+        required: false
+        type: string
+      - description: Campaign Keyword
+        in: formData
+        name: ck
+        required: false
+        type: string
+      - description: Campaign Content
+        in: formData
+        name: cc
+        required: false
+        type: string
+      - description: Campaign ID
+        in: formData
+        name: ci
+        required: false
+        type: string
+      - description: Google AdWords ID
+        in: formData
+        name: gclid
+        required: false
+        type: string
+      - description: Google Display Ads ID
+        in: formData
+        name: dclid
+        required: false
+        type: string
+      - description: Screen Resolution
+        in: formData
+        name: sr
+        required: false
+        type: string
+      - description: Viewport size
+        in: formData
+        name: vp
+        required: false
+        type: string
+      - description: Document Encoding
+        in: formData
+        name: de
+        required: false
+        type: string
+      - description: Screen Colors
+        in: formData
+        name: sd
+        required: false
+        type: string
+      - description: User Language
+        in: formData
+        name: ul
+        required: false
+        type: string
+      - description: Java Enabled
+        in: formData
+        name: je
+        required: false
+        type: string
+        enum:
+        - '1'
+        - '0'
+      - description: Flash Version
+        in: formData
+        name: fl
+        required: false
+        type: string
+      - description: Hit type
+        in: formData
+        name: t
+        required: true
+        type: string
+        enum:
+        - pageview
+        - screenview
+        - event
+        - transaction
+        - item
+        - social
+        - exception
+        - timing
+        default: 'pageview'
+      - description: Non-Interaction Hit
+        in: formData
+        name: ni
+        required: false
+        type: string
+        enum:
+        - '1'
+      - description: Document location URL
+        in: formData
+        name: dl
+        required: false
+        type: string
+      - description: Document Host Name
+        in: formData
+        name: dh
+        required: false
+        type: string
+      - description: Document Path
+        in: formData
+        name: dp
+        required: false
+        type: string
+      - description: Document Title
+        in: formData
+        name: dt
+        required: false
+        type: string
+      - description: Screen Name
+        in: formData
+        name: cd
+        required: false
+        type: string
+      # - description: Content Group
+      #   in: formData
+      #   name: cg<groupIndex>
+      #   required: false
+      #   type: string
+      - description: Link ID
+        in: formData
+        name: linkid
+        required: false
+        type: string
+      - description: Application Name
+        in: formData
+        name: an
+        required: false
+        type: string
+      - description: Application ID
+        in: formData
+        name: aid
+        required: false
+        type: string
+      - description: Application Version
+        in: formData
+        name: av
+        required: false
+        type: string
+      - description: Application Installer ID
+        in: formData
+        name: aiid
+        required: false
+        type: string
+      - description: Event Category
+        in: formData
+        name: ec
+        required: false
+        type: string
+      - description: Event Action
+        in: formData
+        name: ea
+        required: false
+        type: string
+      - description: Event Label
+        in: formData
+        name: el
+        required: false
+        type: string
+      - description: Event Value
+        in: formData
+        name: ev
+        required: false
+        type: integer
+      - description: Transaction ID
+        in: formData
+        name: ti
+        required: false
+        type: string
+      - description: Transaction Affiliation
+        in: formData
+        name: ta
+        required: false
+        type: string
+      - description: Transaction Revenue
+        in: formData
+        name: tr
+        required: false
+        type: number
+      - description: Transaction Shipping
+        in: formData
+        name: ts
+        required: false
+        type: number
+      - description: Transaction Tax
+        in: formData
+        name: tt
+        required: false
+        type: number
+      - description: Item Name
+        in: formData
+        name: in
+        required: false
+        type: string
+      - description: Item Price
+        in: formData
+        name: ip
+        required: false
+        type: number
+      - description: Item Quantity
+        in: formData
+        name: iq
+        required: false
+        type: integer
+      - description: Item Code
+        in: formData
+        name: ic
+        required: false
+        type: string
+      - description: Item Category
+        in: formData
+        name: iv
+        required: false
+        type: string
+      # - description: Product SKU
+      #   in: formData
+      #   name: pr<productIndex>id
+      #   required: false
+      #   type: string
+      # - description: Product Name
+      #   in: formData
+      #   name: pr<productIndex>nm
+      #   required: false
+      #   type: string
+      # - description: Product Brand
+      #   in: formData
+      #   name: pr<productIndex>br
+      #   required: false
+      #   type: string
+      # - description: Product Category
+      #   in: formData
+      #   name: pr<productIndex>ca
+      #   required: false
+      #   type: string
+      # - description: Product Variant
+      #   in: formData
+      #   name: pr<productIndex>va
+      #   required: false
+      #   type: string
+      # - description: Product Price
+      #   in: formData
+      #   name: pr<productIndex>pr
+      #   required: false
+      #   type: number
+      # - description: Product Quantity
+      #   in: formData
+      #   name: pr<productIndex>qt
+      #   required: false
+      #   type: integer
+      # - description: Product Coupon Code
+      #   in: formData
+      #   name: pr<productIndex>cc
+      #   required: false
+      #   type: string
+      # - description: Product Position
+      #   in: formData
+      #   name: pr<productIndex>ps
+      #   required: false
+      #   type: integer
+      # - description: Product Custom Dimension
+      #   in: formData
+      #   name: pr<productIndex>cd<dimensionIndex>
+      #   required: false
+      #   type: string
+      # - description: Product Custom Metric
+      #   in: formData
+      #   name: pr<productIndex>cm<metricIndex>
+      #   required: false
+      #   type: integer
+      - description: Product Action
+        in: formData
+        name: pa
+        required: false
+        type: string
+      - description: Transaction ID
+        in: formData
+        name: ti
+        required: false
+        type: string
+      - description: Affiliation
+        in: formData
+        name: ta
+        required: false
+        type: string
+      - description: Revenue
+        in: formData
+        name: tr
+        required: false
+        type: number
+      - description: Tax
+        in: formData
+        name: tt
+        required: false
+        type: number
+      - description: Shipping
+        in: formData
+        name: ts
+        required: false
+        type: number
+      - description: Coupon Code
+        in: formData
+        name: tcc
+        required: false
+        type: string
+      - description: Product Action List
+        in: formData
+        name: pal
+        required: false
+        type: string
+      - description: Checkout Step
+        in: formData
+        name: cos
+        required: false
+        type: integer
+      - description: Checkout Step Option
+        in: formData
+        name: col
+        required: false
+        type: string
+      # - description: Product Impression List Name
+      #   in: formData
+      #   name: il<listIndex>nm
+      #   required: false
+      #   type: string
+      # - description: Product Impression SKU
+      #   in: formData
+      #   name: il<listIndex>pi<productIndex>id
+      #   required: false
+      #   type: string
+      # - description: Product Impression Name
+      #   in: formData
+      #   name: il<listIndex>pi<productIndex>nm
+      #   required: false
+      #   type: string
+      # - description: Product Impression Brand
+      #   in: formData
+      #   name: il<listIndex>pi<productIndex>br
+      #   required: false
+      #   type: string
+      # - description: Product Impression Category
+      #   in: formData
+      #   name: il<listIndex>pi<productIndex>ca
+      #   required: false
+      #   type: string
+      # - description: Product Impression Variant
+      #   in: formData
+      #   name: il<listIndex>pi<productIndex>va
+      #   required: false
+      #   type: string
+      # - description: Product Impression Position
+      #   in: formData
+      #   name: il<listIndex>pi<productIndex>ps
+      #   required: false
+      #   type: integer
+      # - description: Product Impression Price
+      #   in: formData
+      #   name: il<listIndex>pi<productIndex>pr
+      #   required: false
+      #   type: number
+      # - description: Product Impression Custom Dimension
+      #   in: formData
+      #   name: il<listIndex>pi<productIndex>cd<dimensionIndex>
+      #   required: false
+      #   type: string
+      # - description: Product Impression Custom Metric
+      #   in: formData
+      #   name: il<listIndex>pi<productIndex>cm<metricIndex>
+      #   required: false
+      #   type: integer
+      # - description: Promotion ID
+      #   in: formData
+      #   name: promo<promoIndex>id
+      #   required: false
+      #   type: string
+      # - description: Promotion Name
+      #   in: formData
+      #   name: promo<promoIndex>nm
+      #   required: false
+      #   type: string
+      # - description: Promotion Creative
+      #   in: formData
+      #   name: promo<promoIndex>cr
+      #   required: false
+      #   type: string
+      # - description: Promotion Position
+      #   in: formData
+      #   name: promo<promoIndex>ps
+      #   required: false
+      #   type: string
+      - description: Promotion Action
+        in: formData
+        name: promoa
+        required: false
+        type: string
+      - description: Currency Code
+        in: formData
+        name: cu
+        required: false
+        type: string
+      - description: Social Network
+        in: formData
+        name: sn
+        required: false
+        type: string
+      - description: Social Action
+        in: formData
+        name: sa
+        required: false
+        type: string
+      - description: Social Action Target
+        in: formData
+        name: st
+        required: false
+        type: string
+      - description: User timing category
+        in: formData
+        name: utc
+        required: false
+        type: string
+      - description: User timing variable name
+        in: formData
+        name: utv
+        required: false
+        type: string
+      - description: User timing time
+        in: formData
+        name: utt
+        required: false
+        type: integer
+      - description: User timing label
+        in: formData
+        name: utl
+        required: false
+        type: string
+      - description: Page Load Time
+        in: formData
+        name: plt
+        required: false
+        type: integer
+      - description: DNS Time
+        in: formData
+        name: dns
+        required: false
+        type: integer
+      - description: Page Download Time
+        in: formData
+        name: pdt
+        required: false
+        type: integer
+      - description: Redirect Response Time
+        in: formData
+        name: rrt
+        required: false
+        type: integer
+      - description: TCP Connect Time
+        in: formData
+        name: tcp
+        required: false
+        type: integer
+      - description: Server Response Time
+        in: formData
+        name: srt
+        required: false
+        type: integer
+      - description: DOM Interactive Time
+        in: formData
+        name: dit
+        required: false
+        type: integer
+      - description: Content Load Time
+        in: formData
+        name: clt
+        required: false
+        type: integer
+      - description: Exception Description
+        in: formData
+        name: exd
+        required: false
+        type: string
+      - description: Is Exception Fatal?
+        in: formData
+        name: exf
+        required: false
+        type: string
+        enum:
+        - '0'
+        - '1'
+      # - description: Custom Dimension
+      #   in: formData
+      #   name: cd<dimensionIndex>
+      #   required: false
+      #   type: string
+      # - description: Custom Metric
+      #   in: formData
+      #   name: cm<metricIndex>
+      #   required: false
+      #   type: number
+      - description: Experiment ID
+        in: formData
+        name: xid
+        required: false
+        type: string
+      - description: Experiment Variant
+        in: formData
+        name: xvar
+        required: false
+        type: string
+definitions:
+  HitParsingResult:
+    type: object
+    properties:
+      valid:
+        type: boolean
+      hit:
+        type: string
+      parserMessage:
+        type: array
+        items:
+          type: object
+          x-go-name: ParserMessage
+          properties:
+            messageType:
+              type: string
+            description:
+              type: string
+            parameter:
+              type: string

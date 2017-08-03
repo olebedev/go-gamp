@@ -50,6 +50,34 @@ func (a *Client) Collect(params *CollectParams) error {
 
 }
 
+/*
+DebugCollect Debug Measurements
+*/
+func (a *Client) DebugCollect(params *DebugCollectParams) (*DebugCollectOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDebugCollectParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "DebugCollect",
+		Method:             "POST",
+		PathPattern:        "/debug/collect",
+		ProducesMediaTypes: []string{"image/gif"},
+		ConsumesMediaTypes: []string{"application/x-www-form-urlencoded"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DebugCollectReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DebugCollectOK), nil
+
+}
+
 // SetTransport changes the transport on the client
 func (a *Client) SetTransport(transport runtime.ClientTransport) {
 	a.transport = transport

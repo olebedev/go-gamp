@@ -17,14 +17,14 @@ import (
 	strfmt "github.com/go-openapi/strfmt"
 )
 
-// NewCollectParams creates a new CollectParams object
+// NewDebugCollectParams creates a new DebugCollectParams object
 // with the default values initialized.
-func NewCollectParams() *CollectParams {
+func NewDebugCollectParams() *DebugCollectParams {
 	var (
 		tDefault = string("pageview")
 		vDefault = string("1")
 	)
-	return &CollectParams{
+	return &DebugCollectParams{
 		T: tDefault,
 		V: vDefault,
 
@@ -32,14 +32,14 @@ func NewCollectParams() *CollectParams {
 	}
 }
 
-// NewCollectParamsWithTimeout creates a new CollectParams object
+// NewDebugCollectParamsWithTimeout creates a new DebugCollectParams object
 // with the default values initialized, and the ability to set a timeout on a request
-func NewCollectParamsWithTimeout(timeout time.Duration) *CollectParams {
+func NewDebugCollectParamsWithTimeout(timeout time.Duration) *DebugCollectParams {
 	var (
 		tDefault = string("pageview")
 		vDefault = string("1")
 	)
-	return &CollectParams{
+	return &DebugCollectParams{
 		T: tDefault,
 		V: vDefault,
 
@@ -47,14 +47,14 @@ func NewCollectParamsWithTimeout(timeout time.Duration) *CollectParams {
 	}
 }
 
-// NewCollectParamsWithContext creates a new CollectParams object
+// NewDebugCollectParamsWithContext creates a new DebugCollectParams object
 // with the default values initialized, and the ability to set a context for a request
-func NewCollectParamsWithContext(ctx context.Context) *CollectParams {
+func NewDebugCollectParamsWithContext(ctx context.Context) *DebugCollectParams {
 	var (
 		tDefault = string("pageview")
 		vDefault = string("1")
 	)
-	return &CollectParams{
+	return &DebugCollectParams{
 		T: tDefault,
 		V: vDefault,
 
@@ -62,24 +62,24 @@ func NewCollectParamsWithContext(ctx context.Context) *CollectParams {
 	}
 }
 
-// NewCollectParamsWithHTTPClient creates a new CollectParams object
+// NewDebugCollectParamsWithHTTPClient creates a new DebugCollectParams object
 // with the default values initialized, and the ability to set a custom HTTPClient for a request
-func NewCollectParamsWithHTTPClient(client *http.Client) *CollectParams {
+func NewDebugCollectParamsWithHTTPClient(client *http.Client) *DebugCollectParams {
 	var (
 		tDefault = string("pageview")
 		vDefault = string("1")
 	)
-	return &CollectParams{
+	return &DebugCollectParams{
 		T:          tDefault,
 		V:          vDefault,
 		HTTPClient: client,
 	}
 }
 
-/*CollectParams contains all the parameters to send to the API endpoint
-for the collect operation typically these are written to a http.Request
+/*DebugCollectParams contains all the parameters to send to the API endpoint
+for the debug collect operation typically these are written to a http.Request
 */
-type CollectParams struct {
+type DebugCollectParams struct {
 
 	/*Aid
 	  Application ID
@@ -487,921 +487,921 @@ type CollectParams struct {
 	HTTPClient *http.Client
 }
 
-// WithTimeout adds the timeout to the collect params
-func (o *CollectParams) WithTimeout(timeout time.Duration) *CollectParams {
+// WithTimeout adds the timeout to the debug collect params
+func (o *DebugCollectParams) WithTimeout(timeout time.Duration) *DebugCollectParams {
 	o.SetTimeout(timeout)
 	return o
 }
 
-// SetTimeout adds the timeout to the collect params
-func (o *CollectParams) SetTimeout(timeout time.Duration) {
+// SetTimeout adds the timeout to the debug collect params
+func (o *DebugCollectParams) SetTimeout(timeout time.Duration) {
 	o.timeout = timeout
 }
 
-// WithContext adds the context to the collect params
-func (o *CollectParams) WithContext(ctx context.Context) *CollectParams {
+// WithContext adds the context to the debug collect params
+func (o *DebugCollectParams) WithContext(ctx context.Context) *DebugCollectParams {
 	o.SetContext(ctx)
 	return o
 }
 
-// SetContext adds the context to the collect params
-func (o *CollectParams) SetContext(ctx context.Context) {
+// SetContext adds the context to the debug collect params
+func (o *DebugCollectParams) SetContext(ctx context.Context) {
 	o.Context = ctx
 }
 
-// WithHTTPClient adds the HTTPClient to the collect params
-func (o *CollectParams) WithHTTPClient(client *http.Client) *CollectParams {
+// WithHTTPClient adds the HTTPClient to the debug collect params
+func (o *DebugCollectParams) WithHTTPClient(client *http.Client) *DebugCollectParams {
 	o.SetHTTPClient(client)
 	return o
 }
 
-// SetHTTPClient adds the HTTPClient to the collect params
-func (o *CollectParams) SetHTTPClient(client *http.Client) {
+// SetHTTPClient adds the HTTPClient to the debug collect params
+func (o *DebugCollectParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithAid adds the aid to the collect params
-func (o *CollectParams) WithAid(aid *string) *CollectParams {
+// WithAid adds the aid to the debug collect params
+func (o *DebugCollectParams) WithAid(aid *string) *DebugCollectParams {
 	o.SetAid(aid)
 	return o
 }
 
-// SetAid adds the aid to the collect params
-func (o *CollectParams) SetAid(aid *string) {
+// SetAid adds the aid to the debug collect params
+func (o *DebugCollectParams) SetAid(aid *string) {
 	o.Aid = aid
 }
 
-// WithAiid adds the aiid to the collect params
-func (o *CollectParams) WithAiid(aiid *string) *CollectParams {
+// WithAiid adds the aiid to the debug collect params
+func (o *DebugCollectParams) WithAiid(aiid *string) *DebugCollectParams {
 	o.SetAiid(aiid)
 	return o
 }
 
-// SetAiid adds the aiid to the collect params
-func (o *CollectParams) SetAiid(aiid *string) {
+// SetAiid adds the aiid to the debug collect params
+func (o *DebugCollectParams) SetAiid(aiid *string) {
 	o.Aiid = aiid
 }
 
-// WithAip adds the aip to the collect params
-func (o *CollectParams) WithAip(aip *string) *CollectParams {
+// WithAip adds the aip to the debug collect params
+func (o *DebugCollectParams) WithAip(aip *string) *DebugCollectParams {
 	o.SetAip(aip)
 	return o
 }
 
-// SetAip adds the aip to the collect params
-func (o *CollectParams) SetAip(aip *string) {
+// SetAip adds the aip to the debug collect params
+func (o *DebugCollectParams) SetAip(aip *string) {
 	o.Aip = aip
 }
 
-// WithAn adds the an to the collect params
-func (o *CollectParams) WithAn(an *string) *CollectParams {
+// WithAn adds the an to the debug collect params
+func (o *DebugCollectParams) WithAn(an *string) *DebugCollectParams {
 	o.SetAn(an)
 	return o
 }
 
-// SetAn adds the an to the collect params
-func (o *CollectParams) SetAn(an *string) {
+// SetAn adds the an to the debug collect params
+func (o *DebugCollectParams) SetAn(an *string) {
 	o.An = an
 }
 
-// WithAv adds the av to the collect params
-func (o *CollectParams) WithAv(av *string) *CollectParams {
+// WithAv adds the av to the debug collect params
+func (o *DebugCollectParams) WithAv(av *string) *DebugCollectParams {
 	o.SetAv(av)
 	return o
 }
 
-// SetAv adds the av to the collect params
-func (o *CollectParams) SetAv(av *string) {
+// SetAv adds the av to the debug collect params
+func (o *DebugCollectParams) SetAv(av *string) {
 	o.Av = av
 }
 
-// WithCc adds the cc to the collect params
-func (o *CollectParams) WithCc(cc *string) *CollectParams {
+// WithCc adds the cc to the debug collect params
+func (o *DebugCollectParams) WithCc(cc *string) *DebugCollectParams {
 	o.SetCc(cc)
 	return o
 }
 
-// SetCc adds the cc to the collect params
-func (o *CollectParams) SetCc(cc *string) {
+// SetCc adds the cc to the debug collect params
+func (o *DebugCollectParams) SetCc(cc *string) {
 	o.Cc = cc
 }
 
-// WithCd adds the cd to the collect params
-func (o *CollectParams) WithCd(cd *string) *CollectParams {
+// WithCd adds the cd to the debug collect params
+func (o *DebugCollectParams) WithCd(cd *string) *DebugCollectParams {
 	o.SetCd(cd)
 	return o
 }
 
-// SetCd adds the cd to the collect params
-func (o *CollectParams) SetCd(cd *string) {
+// SetCd adds the cd to the debug collect params
+func (o *DebugCollectParams) SetCd(cd *string) {
 	o.Cd = cd
 }
 
-// WithCi adds the ci to the collect params
-func (o *CollectParams) WithCi(ci *string) *CollectParams {
+// WithCi adds the ci to the debug collect params
+func (o *DebugCollectParams) WithCi(ci *string) *DebugCollectParams {
 	o.SetCi(ci)
 	return o
 }
 
-// SetCi adds the ci to the collect params
-func (o *CollectParams) SetCi(ci *string) {
+// SetCi adds the ci to the debug collect params
+func (o *DebugCollectParams) SetCi(ci *string) {
 	o.Ci = ci
 }
 
-// WithCid adds the cid to the collect params
-func (o *CollectParams) WithCid(cid *string) *CollectParams {
+// WithCid adds the cid to the debug collect params
+func (o *DebugCollectParams) WithCid(cid *string) *DebugCollectParams {
 	o.SetCid(cid)
 	return o
 }
 
-// SetCid adds the cid to the collect params
-func (o *CollectParams) SetCid(cid *string) {
+// SetCid adds the cid to the debug collect params
+func (o *DebugCollectParams) SetCid(cid *string) {
 	o.Cid = cid
 }
 
-// WithCk adds the ck to the collect params
-func (o *CollectParams) WithCk(ck *string) *CollectParams {
+// WithCk adds the ck to the debug collect params
+func (o *DebugCollectParams) WithCk(ck *string) *DebugCollectParams {
 	o.SetCk(ck)
 	return o
 }
 
-// SetCk adds the ck to the collect params
-func (o *CollectParams) SetCk(ck *string) {
+// SetCk adds the ck to the debug collect params
+func (o *DebugCollectParams) SetCk(ck *string) {
 	o.Ck = ck
 }
 
-// WithClt adds the clt to the collect params
-func (o *CollectParams) WithClt(clt *int64) *CollectParams {
+// WithClt adds the clt to the debug collect params
+func (o *DebugCollectParams) WithClt(clt *int64) *DebugCollectParams {
 	o.SetClt(clt)
 	return o
 }
 
-// SetClt adds the clt to the collect params
-func (o *CollectParams) SetClt(clt *int64) {
+// SetClt adds the clt to the debug collect params
+func (o *DebugCollectParams) SetClt(clt *int64) {
 	o.Clt = clt
 }
 
-// WithCm adds the cm to the collect params
-func (o *CollectParams) WithCm(cm *string) *CollectParams {
+// WithCm adds the cm to the debug collect params
+func (o *DebugCollectParams) WithCm(cm *string) *DebugCollectParams {
 	o.SetCm(cm)
 	return o
 }
 
-// SetCm adds the cm to the collect params
-func (o *CollectParams) SetCm(cm *string) {
+// SetCm adds the cm to the debug collect params
+func (o *DebugCollectParams) SetCm(cm *string) {
 	o.Cm = cm
 }
 
-// WithCn adds the cn to the collect params
-func (o *CollectParams) WithCn(cn *string) *CollectParams {
+// WithCn adds the cn to the debug collect params
+func (o *DebugCollectParams) WithCn(cn *string) *DebugCollectParams {
 	o.SetCn(cn)
 	return o
 }
 
-// SetCn adds the cn to the collect params
-func (o *CollectParams) SetCn(cn *string) {
+// SetCn adds the cn to the debug collect params
+func (o *DebugCollectParams) SetCn(cn *string) {
 	o.Cn = cn
 }
 
-// WithCol adds the col to the collect params
-func (o *CollectParams) WithCol(col *string) *CollectParams {
+// WithCol adds the col to the debug collect params
+func (o *DebugCollectParams) WithCol(col *string) *DebugCollectParams {
 	o.SetCol(col)
 	return o
 }
 
-// SetCol adds the col to the collect params
-func (o *CollectParams) SetCol(col *string) {
+// SetCol adds the col to the debug collect params
+func (o *DebugCollectParams) SetCol(col *string) {
 	o.Col = col
 }
 
-// WithCos adds the cos to the collect params
-func (o *CollectParams) WithCos(cos *int64) *CollectParams {
+// WithCos adds the cos to the debug collect params
+func (o *DebugCollectParams) WithCos(cos *int64) *DebugCollectParams {
 	o.SetCos(cos)
 	return o
 }
 
-// SetCos adds the cos to the collect params
-func (o *CollectParams) SetCos(cos *int64) {
+// SetCos adds the cos to the debug collect params
+func (o *DebugCollectParams) SetCos(cos *int64) {
 	o.Cos = cos
 }
 
-// WithCs adds the cs to the collect params
-func (o *CollectParams) WithCs(cs *string) *CollectParams {
+// WithCs adds the cs to the debug collect params
+func (o *DebugCollectParams) WithCs(cs *string) *DebugCollectParams {
 	o.SetCs(cs)
 	return o
 }
 
-// SetCs adds the cs to the collect params
-func (o *CollectParams) SetCs(cs *string) {
+// SetCs adds the cs to the debug collect params
+func (o *DebugCollectParams) SetCs(cs *string) {
 	o.Cs = cs
 }
 
-// WithCu adds the cu to the collect params
-func (o *CollectParams) WithCu(cu *string) *CollectParams {
+// WithCu adds the cu to the debug collect params
+func (o *DebugCollectParams) WithCu(cu *string) *DebugCollectParams {
 	o.SetCu(cu)
 	return o
 }
 
-// SetCu adds the cu to the collect params
-func (o *CollectParams) SetCu(cu *string) {
+// SetCu adds the cu to the debug collect params
+func (o *DebugCollectParams) SetCu(cu *string) {
 	o.Cu = cu
 }
 
-// WithDclid adds the dclid to the collect params
-func (o *CollectParams) WithDclid(dclid *string) *CollectParams {
+// WithDclid adds the dclid to the debug collect params
+func (o *DebugCollectParams) WithDclid(dclid *string) *DebugCollectParams {
 	o.SetDclid(dclid)
 	return o
 }
 
-// SetDclid adds the dclid to the collect params
-func (o *CollectParams) SetDclid(dclid *string) {
+// SetDclid adds the dclid to the debug collect params
+func (o *DebugCollectParams) SetDclid(dclid *string) {
 	o.Dclid = dclid
 }
 
-// WithDe adds the de to the collect params
-func (o *CollectParams) WithDe(de *string) *CollectParams {
+// WithDe adds the de to the debug collect params
+func (o *DebugCollectParams) WithDe(de *string) *DebugCollectParams {
 	o.SetDe(de)
 	return o
 }
 
-// SetDe adds the de to the collect params
-func (o *CollectParams) SetDe(de *string) {
+// SetDe adds the de to the debug collect params
+func (o *DebugCollectParams) SetDe(de *string) {
 	o.De = de
 }
 
-// WithDh adds the dh to the collect params
-func (o *CollectParams) WithDh(dh *string) *CollectParams {
+// WithDh adds the dh to the debug collect params
+func (o *DebugCollectParams) WithDh(dh *string) *DebugCollectParams {
 	o.SetDh(dh)
 	return o
 }
 
-// SetDh adds the dh to the collect params
-func (o *CollectParams) SetDh(dh *string) {
+// SetDh adds the dh to the debug collect params
+func (o *DebugCollectParams) SetDh(dh *string) {
 	o.Dh = dh
 }
 
-// WithDit adds the dit to the collect params
-func (o *CollectParams) WithDit(dit *int64) *CollectParams {
+// WithDit adds the dit to the debug collect params
+func (o *DebugCollectParams) WithDit(dit *int64) *DebugCollectParams {
 	o.SetDit(dit)
 	return o
 }
 
-// SetDit adds the dit to the collect params
-func (o *CollectParams) SetDit(dit *int64) {
+// SetDit adds the dit to the debug collect params
+func (o *DebugCollectParams) SetDit(dit *int64) {
 	o.Dit = dit
 }
 
-// WithDl adds the dl to the collect params
-func (o *CollectParams) WithDl(dl *string) *CollectParams {
+// WithDl adds the dl to the debug collect params
+func (o *DebugCollectParams) WithDl(dl *string) *DebugCollectParams {
 	o.SetDl(dl)
 	return o
 }
 
-// SetDl adds the dl to the collect params
-func (o *CollectParams) SetDl(dl *string) {
+// SetDl adds the dl to the debug collect params
+func (o *DebugCollectParams) SetDl(dl *string) {
 	o.Dl = dl
 }
 
-// WithDNS adds the dns to the collect params
-func (o *CollectParams) WithDNS(dns *int64) *CollectParams {
+// WithDNS adds the dns to the debug collect params
+func (o *DebugCollectParams) WithDNS(dns *int64) *DebugCollectParams {
 	o.SetDNS(dns)
 	return o
 }
 
-// SetDNS adds the dns to the collect params
-func (o *CollectParams) SetDNS(dns *int64) {
+// SetDNS adds the dns to the debug collect params
+func (o *DebugCollectParams) SetDNS(dns *int64) {
 	o.DNS = dns
 }
 
-// WithDp adds the dp to the collect params
-func (o *CollectParams) WithDp(dp *string) *CollectParams {
+// WithDp adds the dp to the debug collect params
+func (o *DebugCollectParams) WithDp(dp *string) *DebugCollectParams {
 	o.SetDp(dp)
 	return o
 }
 
-// SetDp adds the dp to the collect params
-func (o *CollectParams) SetDp(dp *string) {
+// SetDp adds the dp to the debug collect params
+func (o *DebugCollectParams) SetDp(dp *string) {
 	o.Dp = dp
 }
 
-// WithDr adds the dr to the collect params
-func (o *CollectParams) WithDr(dr *string) *CollectParams {
+// WithDr adds the dr to the debug collect params
+func (o *DebugCollectParams) WithDr(dr *string) *DebugCollectParams {
 	o.SetDr(dr)
 	return o
 }
 
-// SetDr adds the dr to the collect params
-func (o *CollectParams) SetDr(dr *string) {
+// SetDr adds the dr to the debug collect params
+func (o *DebugCollectParams) SetDr(dr *string) {
 	o.Dr = dr
 }
 
-// WithDs adds the ds to the collect params
-func (o *CollectParams) WithDs(ds *string) *CollectParams {
+// WithDs adds the ds to the debug collect params
+func (o *DebugCollectParams) WithDs(ds *string) *DebugCollectParams {
 	o.SetDs(ds)
 	return o
 }
 
-// SetDs adds the ds to the collect params
-func (o *CollectParams) SetDs(ds *string) {
+// SetDs adds the ds to the debug collect params
+func (o *DebugCollectParams) SetDs(ds *string) {
 	o.Ds = ds
 }
 
-// WithDt adds the dt to the collect params
-func (o *CollectParams) WithDt(dt *string) *CollectParams {
+// WithDt adds the dt to the debug collect params
+func (o *DebugCollectParams) WithDt(dt *string) *DebugCollectParams {
 	o.SetDt(dt)
 	return o
 }
 
-// SetDt adds the dt to the collect params
-func (o *CollectParams) SetDt(dt *string) {
+// SetDt adds the dt to the debug collect params
+func (o *DebugCollectParams) SetDt(dt *string) {
 	o.Dt = dt
 }
 
-// WithEa adds the ea to the collect params
-func (o *CollectParams) WithEa(ea *string) *CollectParams {
+// WithEa adds the ea to the debug collect params
+func (o *DebugCollectParams) WithEa(ea *string) *DebugCollectParams {
 	o.SetEa(ea)
 	return o
 }
 
-// SetEa adds the ea to the collect params
-func (o *CollectParams) SetEa(ea *string) {
+// SetEa adds the ea to the debug collect params
+func (o *DebugCollectParams) SetEa(ea *string) {
 	o.Ea = ea
 }
 
-// WithEc adds the ec to the collect params
-func (o *CollectParams) WithEc(ec *string) *CollectParams {
+// WithEc adds the ec to the debug collect params
+func (o *DebugCollectParams) WithEc(ec *string) *DebugCollectParams {
 	o.SetEc(ec)
 	return o
 }
 
-// SetEc adds the ec to the collect params
-func (o *CollectParams) SetEc(ec *string) {
+// SetEc adds the ec to the debug collect params
+func (o *DebugCollectParams) SetEc(ec *string) {
 	o.Ec = ec
 }
 
-// WithEl adds the el to the collect params
-func (o *CollectParams) WithEl(el *string) *CollectParams {
+// WithEl adds the el to the debug collect params
+func (o *DebugCollectParams) WithEl(el *string) *DebugCollectParams {
 	o.SetEl(el)
 	return o
 }
 
-// SetEl adds the el to the collect params
-func (o *CollectParams) SetEl(el *string) {
+// SetEl adds the el to the debug collect params
+func (o *DebugCollectParams) SetEl(el *string) {
 	o.El = el
 }
 
-// WithEv adds the ev to the collect params
-func (o *CollectParams) WithEv(ev *int64) *CollectParams {
+// WithEv adds the ev to the debug collect params
+func (o *DebugCollectParams) WithEv(ev *int64) *DebugCollectParams {
 	o.SetEv(ev)
 	return o
 }
 
-// SetEv adds the ev to the collect params
-func (o *CollectParams) SetEv(ev *int64) {
+// SetEv adds the ev to the debug collect params
+func (o *DebugCollectParams) SetEv(ev *int64) {
 	o.Ev = ev
 }
 
-// WithExd adds the exd to the collect params
-func (o *CollectParams) WithExd(exd *string) *CollectParams {
+// WithExd adds the exd to the debug collect params
+func (o *DebugCollectParams) WithExd(exd *string) *DebugCollectParams {
 	o.SetExd(exd)
 	return o
 }
 
-// SetExd adds the exd to the collect params
-func (o *CollectParams) SetExd(exd *string) {
+// SetExd adds the exd to the debug collect params
+func (o *DebugCollectParams) SetExd(exd *string) {
 	o.Exd = exd
 }
 
-// WithExf adds the exf to the collect params
-func (o *CollectParams) WithExf(exf *string) *CollectParams {
+// WithExf adds the exf to the debug collect params
+func (o *DebugCollectParams) WithExf(exf *string) *DebugCollectParams {
 	o.SetExf(exf)
 	return o
 }
 
-// SetExf adds the exf to the collect params
-func (o *CollectParams) SetExf(exf *string) {
+// SetExf adds the exf to the debug collect params
+func (o *DebugCollectParams) SetExf(exf *string) {
 	o.Exf = exf
 }
 
-// WithFl adds the fl to the collect params
-func (o *CollectParams) WithFl(fl *string) *CollectParams {
+// WithFl adds the fl to the debug collect params
+func (o *DebugCollectParams) WithFl(fl *string) *DebugCollectParams {
 	o.SetFl(fl)
 	return o
 }
 
-// SetFl adds the fl to the collect params
-func (o *CollectParams) SetFl(fl *string) {
+// SetFl adds the fl to the debug collect params
+func (o *DebugCollectParams) SetFl(fl *string) {
 	o.Fl = fl
 }
 
-// WithGclid adds the gclid to the collect params
-func (o *CollectParams) WithGclid(gclid *string) *CollectParams {
+// WithGclid adds the gclid to the debug collect params
+func (o *DebugCollectParams) WithGclid(gclid *string) *DebugCollectParams {
 	o.SetGclid(gclid)
 	return o
 }
 
-// SetGclid adds the gclid to the collect params
-func (o *CollectParams) SetGclid(gclid *string) {
+// SetGclid adds the gclid to the debug collect params
+func (o *DebugCollectParams) SetGclid(gclid *string) {
 	o.Gclid = gclid
 }
 
-// WithGeoid adds the geoid to the collect params
-func (o *CollectParams) WithGeoid(geoid *string) *CollectParams {
+// WithGeoid adds the geoid to the debug collect params
+func (o *DebugCollectParams) WithGeoid(geoid *string) *DebugCollectParams {
 	o.SetGeoid(geoid)
 	return o
 }
 
-// SetGeoid adds the geoid to the collect params
-func (o *CollectParams) SetGeoid(geoid *string) {
+// SetGeoid adds the geoid to the debug collect params
+func (o *DebugCollectParams) SetGeoid(geoid *string) {
 	o.Geoid = geoid
 }
 
-// WithIc adds the ic to the collect params
-func (o *CollectParams) WithIc(ic *string) *CollectParams {
+// WithIc adds the ic to the debug collect params
+func (o *DebugCollectParams) WithIc(ic *string) *DebugCollectParams {
 	o.SetIc(ic)
 	return o
 }
 
-// SetIc adds the ic to the collect params
-func (o *CollectParams) SetIc(ic *string) {
+// SetIc adds the ic to the debug collect params
+func (o *DebugCollectParams) SetIc(ic *string) {
 	o.Ic = ic
 }
 
-// WithIn adds the in to the collect params
-func (o *CollectParams) WithIn(in *string) *CollectParams {
+// WithIn adds the in to the debug collect params
+func (o *DebugCollectParams) WithIn(in *string) *DebugCollectParams {
 	o.SetIn(in)
 	return o
 }
 
-// SetIn adds the in to the collect params
-func (o *CollectParams) SetIn(in *string) {
+// SetIn adds the in to the debug collect params
+func (o *DebugCollectParams) SetIn(in *string) {
 	o.In = in
 }
 
-// WithIP adds the ip to the collect params
-func (o *CollectParams) WithIP(ip *float64) *CollectParams {
+// WithIP adds the ip to the debug collect params
+func (o *DebugCollectParams) WithIP(ip *float64) *DebugCollectParams {
 	o.SetIP(ip)
 	return o
 }
 
-// SetIP adds the ip to the collect params
-func (o *CollectParams) SetIP(ip *float64) {
+// SetIP adds the ip to the debug collect params
+func (o *DebugCollectParams) SetIP(ip *float64) {
 	o.IP = ip
 }
 
-// WithIq adds the iq to the collect params
-func (o *CollectParams) WithIq(iq *int64) *CollectParams {
+// WithIq adds the iq to the debug collect params
+func (o *DebugCollectParams) WithIq(iq *int64) *DebugCollectParams {
 	o.SetIq(iq)
 	return o
 }
 
-// SetIq adds the iq to the collect params
-func (o *CollectParams) SetIq(iq *int64) {
+// SetIq adds the iq to the debug collect params
+func (o *DebugCollectParams) SetIq(iq *int64) {
 	o.Iq = iq
 }
 
-// WithIv adds the iv to the collect params
-func (o *CollectParams) WithIv(iv *string) *CollectParams {
+// WithIv adds the iv to the debug collect params
+func (o *DebugCollectParams) WithIv(iv *string) *DebugCollectParams {
 	o.SetIv(iv)
 	return o
 }
 
-// SetIv adds the iv to the collect params
-func (o *CollectParams) SetIv(iv *string) {
+// SetIv adds the iv to the debug collect params
+func (o *DebugCollectParams) SetIv(iv *string) {
 	o.Iv = iv
 }
 
-// WithJe adds the je to the collect params
-func (o *CollectParams) WithJe(je *string) *CollectParams {
+// WithJe adds the je to the debug collect params
+func (o *DebugCollectParams) WithJe(je *string) *DebugCollectParams {
 	o.SetJe(je)
 	return o
 }
 
-// SetJe adds the je to the collect params
-func (o *CollectParams) SetJe(je *string) {
+// SetJe adds the je to the debug collect params
+func (o *DebugCollectParams) SetJe(je *string) {
 	o.Je = je
 }
 
-// WithLinkid adds the linkid to the collect params
-func (o *CollectParams) WithLinkid(linkid *string) *CollectParams {
+// WithLinkid adds the linkid to the debug collect params
+func (o *DebugCollectParams) WithLinkid(linkid *string) *DebugCollectParams {
 	o.SetLinkid(linkid)
 	return o
 }
 
-// SetLinkid adds the linkid to the collect params
-func (o *CollectParams) SetLinkid(linkid *string) {
+// SetLinkid adds the linkid to the debug collect params
+func (o *DebugCollectParams) SetLinkid(linkid *string) {
 	o.Linkid = linkid
 }
 
-// WithNi adds the ni to the collect params
-func (o *CollectParams) WithNi(ni *string) *CollectParams {
+// WithNi adds the ni to the debug collect params
+func (o *DebugCollectParams) WithNi(ni *string) *DebugCollectParams {
 	o.SetNi(ni)
 	return o
 }
 
-// SetNi adds the ni to the collect params
-func (o *CollectParams) SetNi(ni *string) {
+// SetNi adds the ni to the debug collect params
+func (o *DebugCollectParams) SetNi(ni *string) {
 	o.Ni = ni
 }
 
-// WithPa adds the pa to the collect params
-func (o *CollectParams) WithPa(pa *string) *CollectParams {
+// WithPa adds the pa to the debug collect params
+func (o *DebugCollectParams) WithPa(pa *string) *DebugCollectParams {
 	o.SetPa(pa)
 	return o
 }
 
-// SetPa adds the pa to the collect params
-func (o *CollectParams) SetPa(pa *string) {
+// SetPa adds the pa to the debug collect params
+func (o *DebugCollectParams) SetPa(pa *string) {
 	o.Pa = pa
 }
 
-// WithPal adds the pal to the collect params
-func (o *CollectParams) WithPal(pal *string) *CollectParams {
+// WithPal adds the pal to the debug collect params
+func (o *DebugCollectParams) WithPal(pal *string) *DebugCollectParams {
 	o.SetPal(pal)
 	return o
 }
 
-// SetPal adds the pal to the collect params
-func (o *CollectParams) SetPal(pal *string) {
+// SetPal adds the pal to the debug collect params
+func (o *DebugCollectParams) SetPal(pal *string) {
 	o.Pal = pal
 }
 
-// WithPdt adds the pdt to the collect params
-func (o *CollectParams) WithPdt(pdt *int64) *CollectParams {
+// WithPdt adds the pdt to the debug collect params
+func (o *DebugCollectParams) WithPdt(pdt *int64) *DebugCollectParams {
 	o.SetPdt(pdt)
 	return o
 }
 
-// SetPdt adds the pdt to the collect params
-func (o *CollectParams) SetPdt(pdt *int64) {
+// SetPdt adds the pdt to the debug collect params
+func (o *DebugCollectParams) SetPdt(pdt *int64) {
 	o.Pdt = pdt
 }
 
-// WithPlt adds the plt to the collect params
-func (o *CollectParams) WithPlt(plt *int64) *CollectParams {
+// WithPlt adds the plt to the debug collect params
+func (o *DebugCollectParams) WithPlt(plt *int64) *DebugCollectParams {
 	o.SetPlt(plt)
 	return o
 }
 
-// SetPlt adds the plt to the collect params
-func (o *CollectParams) SetPlt(plt *int64) {
+// SetPlt adds the plt to the debug collect params
+func (o *DebugCollectParams) SetPlt(plt *int64) {
 	o.Plt = plt
 }
 
-// WithPromoa adds the promoa to the collect params
-func (o *CollectParams) WithPromoa(promoa *string) *CollectParams {
+// WithPromoa adds the promoa to the debug collect params
+func (o *DebugCollectParams) WithPromoa(promoa *string) *DebugCollectParams {
 	o.SetPromoa(promoa)
 	return o
 }
 
-// SetPromoa adds the promoa to the collect params
-func (o *CollectParams) SetPromoa(promoa *string) {
+// SetPromoa adds the promoa to the debug collect params
+func (o *DebugCollectParams) SetPromoa(promoa *string) {
 	o.Promoa = promoa
 }
 
-// WithQt adds the qt to the collect params
-func (o *CollectParams) WithQt(qt *int64) *CollectParams {
+// WithQt adds the qt to the debug collect params
+func (o *DebugCollectParams) WithQt(qt *int64) *DebugCollectParams {
 	o.SetQt(qt)
 	return o
 }
 
-// SetQt adds the qt to the collect params
-func (o *CollectParams) SetQt(qt *int64) {
+// SetQt adds the qt to the debug collect params
+func (o *DebugCollectParams) SetQt(qt *int64) {
 	o.Qt = qt
 }
 
-// WithRrt adds the rrt to the collect params
-func (o *CollectParams) WithRrt(rrt *int64) *CollectParams {
+// WithRrt adds the rrt to the debug collect params
+func (o *DebugCollectParams) WithRrt(rrt *int64) *DebugCollectParams {
 	o.SetRrt(rrt)
 	return o
 }
 
-// SetRrt adds the rrt to the collect params
-func (o *CollectParams) SetRrt(rrt *int64) {
+// SetRrt adds the rrt to the debug collect params
+func (o *DebugCollectParams) SetRrt(rrt *int64) {
 	o.Rrt = rrt
 }
 
-// WithSa adds the sa to the collect params
-func (o *CollectParams) WithSa(sa *string) *CollectParams {
+// WithSa adds the sa to the debug collect params
+func (o *DebugCollectParams) WithSa(sa *string) *DebugCollectParams {
 	o.SetSa(sa)
 	return o
 }
 
-// SetSa adds the sa to the collect params
-func (o *CollectParams) SetSa(sa *string) {
+// SetSa adds the sa to the debug collect params
+func (o *DebugCollectParams) SetSa(sa *string) {
 	o.Sa = sa
 }
 
-// WithSc adds the sc to the collect params
-func (o *CollectParams) WithSc(sc *string) *CollectParams {
+// WithSc adds the sc to the debug collect params
+func (o *DebugCollectParams) WithSc(sc *string) *DebugCollectParams {
 	o.SetSc(sc)
 	return o
 }
 
-// SetSc adds the sc to the collect params
-func (o *CollectParams) SetSc(sc *string) {
+// SetSc adds the sc to the debug collect params
+func (o *DebugCollectParams) SetSc(sc *string) {
 	o.Sc = sc
 }
 
-// WithSd adds the sd to the collect params
-func (o *CollectParams) WithSd(sd *string) *CollectParams {
+// WithSd adds the sd to the debug collect params
+func (o *DebugCollectParams) WithSd(sd *string) *DebugCollectParams {
 	o.SetSd(sd)
 	return o
 }
 
-// SetSd adds the sd to the collect params
-func (o *CollectParams) SetSd(sd *string) {
+// SetSd adds the sd to the debug collect params
+func (o *DebugCollectParams) SetSd(sd *string) {
 	o.Sd = sd
 }
 
-// WithSn adds the sn to the collect params
-func (o *CollectParams) WithSn(sn *string) *CollectParams {
+// WithSn adds the sn to the debug collect params
+func (o *DebugCollectParams) WithSn(sn *string) *DebugCollectParams {
 	o.SetSn(sn)
 	return o
 }
 
-// SetSn adds the sn to the collect params
-func (o *CollectParams) SetSn(sn *string) {
+// SetSn adds the sn to the debug collect params
+func (o *DebugCollectParams) SetSn(sn *string) {
 	o.Sn = sn
 }
 
-// WithSr adds the sr to the collect params
-func (o *CollectParams) WithSr(sr *string) *CollectParams {
+// WithSr adds the sr to the debug collect params
+func (o *DebugCollectParams) WithSr(sr *string) *DebugCollectParams {
 	o.SetSr(sr)
 	return o
 }
 
-// SetSr adds the sr to the collect params
-func (o *CollectParams) SetSr(sr *string) {
+// SetSr adds the sr to the debug collect params
+func (o *DebugCollectParams) SetSr(sr *string) {
 	o.Sr = sr
 }
 
-// WithSrt adds the srt to the collect params
-func (o *CollectParams) WithSrt(srt *int64) *CollectParams {
+// WithSrt adds the srt to the debug collect params
+func (o *DebugCollectParams) WithSrt(srt *int64) *DebugCollectParams {
 	o.SetSrt(srt)
 	return o
 }
 
-// SetSrt adds the srt to the collect params
-func (o *CollectParams) SetSrt(srt *int64) {
+// SetSrt adds the srt to the debug collect params
+func (o *DebugCollectParams) SetSrt(srt *int64) {
 	o.Srt = srt
 }
 
-// WithSt adds the st to the collect params
-func (o *CollectParams) WithSt(st *string) *CollectParams {
+// WithSt adds the st to the debug collect params
+func (o *DebugCollectParams) WithSt(st *string) *DebugCollectParams {
 	o.SetSt(st)
 	return o
 }
 
-// SetSt adds the st to the collect params
-func (o *CollectParams) SetSt(st *string) {
+// SetSt adds the st to the debug collect params
+func (o *DebugCollectParams) SetSt(st *string) {
 	o.St = st
 }
 
-// WithT adds the t to the collect params
-func (o *CollectParams) WithT(t string) *CollectParams {
+// WithT adds the t to the debug collect params
+func (o *DebugCollectParams) WithT(t string) *DebugCollectParams {
 	o.SetT(t)
 	return o
 }
 
-// SetT adds the t to the collect params
-func (o *CollectParams) SetT(t string) {
+// SetT adds the t to the debug collect params
+func (o *DebugCollectParams) SetT(t string) {
 	o.T = t
 }
 
-// WithTa adds the ta to the collect params
-func (o *CollectParams) WithTa(ta *string) *CollectParams {
+// WithTa adds the ta to the debug collect params
+func (o *DebugCollectParams) WithTa(ta *string) *DebugCollectParams {
 	o.SetTa(ta)
 	return o
 }
 
-// SetTa adds the ta to the collect params
-func (o *CollectParams) SetTa(ta *string) {
+// SetTa adds the ta to the debug collect params
+func (o *DebugCollectParams) SetTa(ta *string) {
 	o.Ta = ta
 }
 
-// WithTcc adds the tcc to the collect params
-func (o *CollectParams) WithTcc(tcc *string) *CollectParams {
+// WithTcc adds the tcc to the debug collect params
+func (o *DebugCollectParams) WithTcc(tcc *string) *DebugCollectParams {
 	o.SetTcc(tcc)
 	return o
 }
 
-// SetTcc adds the tcc to the collect params
-func (o *CollectParams) SetTcc(tcc *string) {
+// SetTcc adds the tcc to the debug collect params
+func (o *DebugCollectParams) SetTcc(tcc *string) {
 	o.Tcc = tcc
 }
 
-// WithTCP adds the tcp to the collect params
-func (o *CollectParams) WithTCP(tcp *int64) *CollectParams {
+// WithTCP adds the tcp to the debug collect params
+func (o *DebugCollectParams) WithTCP(tcp *int64) *DebugCollectParams {
 	o.SetTCP(tcp)
 	return o
 }
 
-// SetTCP adds the tcp to the collect params
-func (o *CollectParams) SetTCP(tcp *int64) {
+// SetTCP adds the tcp to the debug collect params
+func (o *DebugCollectParams) SetTCP(tcp *int64) {
 	o.TCP = tcp
 }
 
-// WithTi adds the ti to the collect params
-func (o *CollectParams) WithTi(ti *string) *CollectParams {
+// WithTi adds the ti to the debug collect params
+func (o *DebugCollectParams) WithTi(ti *string) *DebugCollectParams {
 	o.SetTi(ti)
 	return o
 }
 
-// SetTi adds the ti to the collect params
-func (o *CollectParams) SetTi(ti *string) {
+// SetTi adds the ti to the debug collect params
+func (o *DebugCollectParams) SetTi(ti *string) {
 	o.Ti = ti
 }
 
-// WithTid adds the tid to the collect params
-func (o *CollectParams) WithTid(tid string) *CollectParams {
+// WithTid adds the tid to the debug collect params
+func (o *DebugCollectParams) WithTid(tid string) *DebugCollectParams {
 	o.SetTid(tid)
 	return o
 }
 
-// SetTid adds the tid to the collect params
-func (o *CollectParams) SetTid(tid string) {
+// SetTid adds the tid to the debug collect params
+func (o *DebugCollectParams) SetTid(tid string) {
 	o.Tid = tid
 }
 
-// WithTr adds the tr to the collect params
-func (o *CollectParams) WithTr(tr *float64) *CollectParams {
+// WithTr adds the tr to the debug collect params
+func (o *DebugCollectParams) WithTr(tr *float64) *DebugCollectParams {
 	o.SetTr(tr)
 	return o
 }
 
-// SetTr adds the tr to the collect params
-func (o *CollectParams) SetTr(tr *float64) {
+// SetTr adds the tr to the debug collect params
+func (o *DebugCollectParams) SetTr(tr *float64) {
 	o.Tr = tr
 }
 
-// WithTs adds the ts to the collect params
-func (o *CollectParams) WithTs(ts *float64) *CollectParams {
+// WithTs adds the ts to the debug collect params
+func (o *DebugCollectParams) WithTs(ts *float64) *DebugCollectParams {
 	o.SetTs(ts)
 	return o
 }
 
-// SetTs adds the ts to the collect params
-func (o *CollectParams) SetTs(ts *float64) {
+// SetTs adds the ts to the debug collect params
+func (o *DebugCollectParams) SetTs(ts *float64) {
 	o.Ts = ts
 }
 
-// WithTt adds the tt to the collect params
-func (o *CollectParams) WithTt(tt *float64) *CollectParams {
+// WithTt adds the tt to the debug collect params
+func (o *DebugCollectParams) WithTt(tt *float64) *DebugCollectParams {
 	o.SetTt(tt)
 	return o
 }
 
-// SetTt adds the tt to the collect params
-func (o *CollectParams) SetTt(tt *float64) {
+// SetTt adds the tt to the debug collect params
+func (o *DebugCollectParams) SetTt(tt *float64) {
 	o.Tt = tt
 }
 
-// WithUa adds the ua to the collect params
-func (o *CollectParams) WithUa(ua *string) *CollectParams {
+// WithUa adds the ua to the debug collect params
+func (o *DebugCollectParams) WithUa(ua *string) *DebugCollectParams {
 	o.SetUa(ua)
 	return o
 }
 
-// SetUa adds the ua to the collect params
-func (o *CollectParams) SetUa(ua *string) {
+// SetUa adds the ua to the debug collect params
+func (o *DebugCollectParams) SetUa(ua *string) {
 	o.Ua = ua
 }
 
-// WithUID adds the uid to the collect params
-func (o *CollectParams) WithUID(uid *string) *CollectParams {
+// WithUID adds the uid to the debug collect params
+func (o *DebugCollectParams) WithUID(uid *string) *DebugCollectParams {
 	o.SetUID(uid)
 	return o
 }
 
-// SetUID adds the uid to the collect params
-func (o *CollectParams) SetUID(uid *string) {
+// SetUID adds the uid to the debug collect params
+func (o *DebugCollectParams) SetUID(uid *string) {
 	o.UID = uid
 }
 
-// WithUip adds the uip to the collect params
-func (o *CollectParams) WithUip(uip *string) *CollectParams {
+// WithUip adds the uip to the debug collect params
+func (o *DebugCollectParams) WithUip(uip *string) *DebugCollectParams {
 	o.SetUip(uip)
 	return o
 }
 
-// SetUip adds the uip to the collect params
-func (o *CollectParams) SetUip(uip *string) {
+// SetUip adds the uip to the debug collect params
+func (o *DebugCollectParams) SetUip(uip *string) {
 	o.Uip = uip
 }
 
-// WithUl adds the ul to the collect params
-func (o *CollectParams) WithUl(ul *string) *CollectParams {
+// WithUl adds the ul to the debug collect params
+func (o *DebugCollectParams) WithUl(ul *string) *DebugCollectParams {
 	o.SetUl(ul)
 	return o
 }
 
-// SetUl adds the ul to the collect params
-func (o *CollectParams) SetUl(ul *string) {
+// SetUl adds the ul to the debug collect params
+func (o *DebugCollectParams) SetUl(ul *string) {
 	o.Ul = ul
 }
 
-// WithUtc adds the utc to the collect params
-func (o *CollectParams) WithUtc(utc *string) *CollectParams {
+// WithUtc adds the utc to the debug collect params
+func (o *DebugCollectParams) WithUtc(utc *string) *DebugCollectParams {
 	o.SetUtc(utc)
 	return o
 }
 
-// SetUtc adds the utc to the collect params
-func (o *CollectParams) SetUtc(utc *string) {
+// SetUtc adds the utc to the debug collect params
+func (o *DebugCollectParams) SetUtc(utc *string) {
 	o.Utc = utc
 }
 
-// WithUtl adds the utl to the collect params
-func (o *CollectParams) WithUtl(utl *string) *CollectParams {
+// WithUtl adds the utl to the debug collect params
+func (o *DebugCollectParams) WithUtl(utl *string) *DebugCollectParams {
 	o.SetUtl(utl)
 	return o
 }
 
-// SetUtl adds the utl to the collect params
-func (o *CollectParams) SetUtl(utl *string) {
+// SetUtl adds the utl to the debug collect params
+func (o *DebugCollectParams) SetUtl(utl *string) {
 	o.Utl = utl
 }
 
-// WithUtt adds the utt to the collect params
-func (o *CollectParams) WithUtt(utt *int64) *CollectParams {
+// WithUtt adds the utt to the debug collect params
+func (o *DebugCollectParams) WithUtt(utt *int64) *DebugCollectParams {
 	o.SetUtt(utt)
 	return o
 }
 
-// SetUtt adds the utt to the collect params
-func (o *CollectParams) SetUtt(utt *int64) {
+// SetUtt adds the utt to the debug collect params
+func (o *DebugCollectParams) SetUtt(utt *int64) {
 	o.Utt = utt
 }
 
-// WithUtv adds the utv to the collect params
-func (o *CollectParams) WithUtv(utv *string) *CollectParams {
+// WithUtv adds the utv to the debug collect params
+func (o *DebugCollectParams) WithUtv(utv *string) *DebugCollectParams {
 	o.SetUtv(utv)
 	return o
 }
 
-// SetUtv adds the utv to the collect params
-func (o *CollectParams) SetUtv(utv *string) {
+// SetUtv adds the utv to the debug collect params
+func (o *DebugCollectParams) SetUtv(utv *string) {
 	o.Utv = utv
 }
 
-// WithV adds the v to the collect params
-func (o *CollectParams) WithV(v string) *CollectParams {
+// WithV adds the v to the debug collect params
+func (o *DebugCollectParams) WithV(v string) *DebugCollectParams {
 	o.SetV(v)
 	return o
 }
 
-// SetV adds the v to the collect params
-func (o *CollectParams) SetV(v string) {
+// SetV adds the v to the debug collect params
+func (o *DebugCollectParams) SetV(v string) {
 	o.V = v
 }
 
-// WithVp adds the vp to the collect params
-func (o *CollectParams) WithVp(vp *string) *CollectParams {
+// WithVp adds the vp to the debug collect params
+func (o *DebugCollectParams) WithVp(vp *string) *DebugCollectParams {
 	o.SetVp(vp)
 	return o
 }
 
-// SetVp adds the vp to the collect params
-func (o *CollectParams) SetVp(vp *string) {
+// SetVp adds the vp to the debug collect params
+func (o *DebugCollectParams) SetVp(vp *string) {
 	o.Vp = vp
 }
 
-// WithXid adds the xid to the collect params
-func (o *CollectParams) WithXid(xid *string) *CollectParams {
+// WithXid adds the xid to the debug collect params
+func (o *DebugCollectParams) WithXid(xid *string) *DebugCollectParams {
 	o.SetXid(xid)
 	return o
 }
 
-// SetXid adds the xid to the collect params
-func (o *CollectParams) SetXid(xid *string) {
+// SetXid adds the xid to the debug collect params
+func (o *DebugCollectParams) SetXid(xid *string) {
 	o.Xid = xid
 }
 
-// WithXvar adds the xvar to the collect params
-func (o *CollectParams) WithXvar(xvar *string) *CollectParams {
+// WithXvar adds the xvar to the debug collect params
+func (o *DebugCollectParams) WithXvar(xvar *string) *DebugCollectParams {
 	o.SetXvar(xvar)
 	return o
 }
 
-// SetXvar adds the xvar to the collect params
-func (o *CollectParams) SetXvar(xvar *string) {
+// SetXvar adds the xvar to the debug collect params
+func (o *DebugCollectParams) SetXvar(xvar *string) {
 	o.Xvar = xvar
 }
 
-// WithZ adds the z to the collect params
-func (o *CollectParams) WithZ(z *string) *CollectParams {
+// WithZ adds the z to the debug collect params
+func (o *DebugCollectParams) WithZ(z *string) *DebugCollectParams {
 	o.SetZ(z)
 	return o
 }
 
-// SetZ adds the z to the collect params
-func (o *CollectParams) SetZ(z *string) {
+// SetZ adds the z to the debug collect params
+func (o *DebugCollectParams) SetZ(z *string) {
 	o.Z = z
 }
 
 // WriteToRequest writes these params to a swagger request
-func (o *CollectParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
+func (o *DebugCollectParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
 	if err := r.SetTimeout(o.timeout); err != nil {
 		return err
