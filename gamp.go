@@ -7,11 +7,43 @@ import (
 
 	"github.com/go-openapi/runtime"
 	httptransport "github.com/go-openapi/runtime/client"
-	"github.com/go-openapi/strfmt"
 	"github.com/olebedev/go-gamp/client"
 	"github.com/olebedev/go-gamp/client/gampops"
-	"github.com/pkg/errors"
+	"golang.org/x/time/rate"
 )
+
+// Add wrapper for API throttling
+type wrapper struct {
+	tid string
+	*rate.Limiter
+	*httptransport.Runtime
+	context.Context
+}
+
+type stid interface {
+	SetTid(string)
+}
+
+// Submit wraps httpclient.Submit for throttling
+func (w *wrapper) Submit(op *runtime.ClientOperation) (interface{}, error) {
+	if op.Context != nil {
+		w.Wait(op.Context)
+	} else if w.Context != nil {
+		w.Wait(w.Context)
+	} else if w.Runtime.Context != nil {
+		w.Wait(w.Runtime.Context)
+	} else {
+		w.Wait(context.Background())
+	}
+
+	if w.tid != "" {
+		if st, ok := op.Params.(stid); ok {
+			st.SetTid(w.tid)
+		}
+	}
+
+	return w.Runtime.Submit(op)
+}
 
 // New returns gamp client
 func New(ctx context.Context, tid string) *gampops.Client {
@@ -20,18 +52,16 @@ func New(ctx context.Context, tid string) *gampops.Client {
 		ctx = context.Background()
 	}
 	transport.Context = ctx
-	transport.DefaultAuthentication = runtime.ClientAuthInfoWriterFunc(func(r runtime.ClientRequest, _ strfmt.Registry) error {
-		err := r.SetFormParam("tid", tid)
-		if err != nil {
-			return errors.Wrap(err, "set form param 'tid'")
-		}
-		return errors.Wrap(r.SetFormParam("v", "1"), "set form param 'v'")
-	})
 	transport.Consumers["image/gif"] = runtime.ConsumerFunc(func(reader io.Reader, data interface{}) error {
 		_, err := ioutil.ReadAll(reader)
 		return err
 	})
 
-	c := client.New(transport, nil)
+	c := client.New(&wrapper{
+		tid:     tid,
+		Limiter: rate.NewLimiter(30, 1),
+		Runtime: transport,
+		Context: ctx,
+	}, nil)
 	return c.Gampops
 }
